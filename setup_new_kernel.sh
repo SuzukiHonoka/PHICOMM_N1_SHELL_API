@@ -1,15 +1,24 @@
 #!/bin/bash
 BUILD_DIR="/tmp"
-SRCURL="https://github.com/SuzukiHonoka/s905d-kernel-precompiled"
-KVER="5.7.9"
+REPO="Amlogic_s905-kernel"
+SRCURL="https://github.com/SuzukiHonoka/$REPO"
+KVER="linux-5.7.11"
 KURL="https://cdn.kernel.org/pub/linux/kernel/v5.x"
 KDURL="$KURL/$KVER.tar.xz"
 cd $BUILD_DIR
+if [ ! -f "$BUILD_DIR/$REPO" ]; then
 git clone --depth=1 --single-branch -b master $SRCURL
+fi
 wget $KDURL
-xz -d $KVER.tar.xz
-tar xvf $KVER.tar
-cd $BUILD_DIR/s905d-kernel-precompiled
+xz -d "$KVER.tar.xz"
+rm "$KVER.tar.xz"
+tar xvf "$KVER.tar"
+rm "$KVER.tar"
+cd "$BUILD_DIR/$REPO"
+rsync -av --progress $BUILD_DIR/$KVER/* .
 sed -i "s/0x00080000/0x01080000/g" arch/arm64/Makefile
 sed -i "s/#error TEXT_OFFSET must be less than 2MB/\/\/#error TEXT_OFFSET must be less than 2MB/g" arch/arm64/kernel/head.S
-rsync -av --progress $BUILD_DIR/linux-$KVER/* .
+git status
+git add .
+git commit -m "update kernel to $KVER"
+git push
