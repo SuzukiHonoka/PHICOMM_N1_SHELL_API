@@ -4,7 +4,7 @@ BUILD_DIR="/tmp"
 REPO="Amlogic_s905-kernel"
 SRCURL="https://github.com/SuzukiHonoka/$REPO"
 KVERV="5.7.12"
-if [ -z "$ARG1" ]; then
+if [ ! -z "$ARG1" ]; then
 KVERV=$ARG1
 fi
 KVER="linux-$KVERV"
