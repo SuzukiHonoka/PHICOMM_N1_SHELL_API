@@ -22,7 +22,7 @@ rm "$KVER.tar"
 cd "$BUILD_DIR/$REPO"
 rsync -av --progress $BUILD_DIR/$KVER/* .
 #TEXT_OFFSET.*0x*
-sed -i "s/TEXT_OFFSET := 0x0/0x01080000/g" arch/arm64/Makefile
+sed -i "s/TEXT_OFFSET := 0x0/TEXT_OFFSET := 0x01080000/g" arch/arm64/Makefile
 sed -i "s/#error TEXT_OFFSET must be less than 2MB/\/\/#error TEXT_OFFSET must be less than 2MB/g" arch/arm64/kernel/head.S
 cat >> arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts <<EOF
 &external_phy {
