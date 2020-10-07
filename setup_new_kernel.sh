@@ -4,18 +4,18 @@ ROOT_DIR="/tmp/ramfs"
 BUILD_DIR="$ROOT_DIR/build"
 REPO="Amlogic_s905-kernel"
 SRCURL="https://github.com/SuzukiHonoka/$REPO"
-KVERV="5.7.14"
+KVERV="5.8.14"
 
 if [ ! -z "$ARG1" ]; then
-	KVERV=$ARG1
+KVERV=$ARG1
 fi
 
 KVER="linux-$KVERV"
 KURL="https://cdn.kernel.org/pub/linux/kernel/v5.x"
 KDURL="$KURL/$KVER.tar.xz"
 
-if [ ! -d "$ROOT_DIR"];then
-	mkdir -p $ROOT_DIR
+if [ ! -d "$ROOT_DIR" ];then
+mkdir -p $ROOT_DIR
 fi
 
 sudo mount -t tmpfs -o size=4G tmpfs $ROOT_DIR
@@ -23,7 +23,7 @@ mkdir $BUILD_DIR
 cd $BUILD_DIR
 
 if [ ! -f "$BUILD_DIR/$REPO" ]; then
-	git clone --depth=1 --single-branch -b master $SRCURL
+git clone --depth=1 --single-branch -b master $SRCURL
 fi
 
 wget $KDURL
