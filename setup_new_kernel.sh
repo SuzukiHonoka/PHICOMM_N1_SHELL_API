@@ -18,6 +18,10 @@ if [ ! -d "$ROOT_DIR" ];then
 mkdir -p $ROOT_DIR
 fi
 
+if [ -d "$BUILD_DIR" ];then
+umount $ROOT_DIR
+fi
+
 sudo mount -t tmpfs -o size=4G tmpfs $ROOT_DIR
 mkdir $BUILD_DIR
 cd $BUILD_DIR
