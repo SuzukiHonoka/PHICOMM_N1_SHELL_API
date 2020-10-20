@@ -28,10 +28,9 @@ cd $BUILD_DIR
 
 wget $KDURL
 xz -d "$KVER.tar.xz" && rm "$KVER.tar.xz"
-tar xf "$KVER.tar"
-rm "$KVER.tar"
+tar xf "$KVER.tar" && rm "$KVER.tar"
 cd "$BUILD_DIR/$KVER"
-curl -o .config https://github.com/SuzukiHonoka/s905d-kernel-precompiled/raw/master/.config
+#curl -o .config https://github.com/SuzukiHonoka/s905d-kernel-precompiled/raw/master/.config
 
 sed -i "s/TEXT_OFFSET := 0x0/TEXT_OFFSET := 0x01080000/g" arch/arm64/Makefile
 sed -i "s/#error TEXT_OFFSET must be less than 2MB/\/\/#error TEXT_OFFSET must be less than 2MB/g" arch/arm64/kernel/head.S
