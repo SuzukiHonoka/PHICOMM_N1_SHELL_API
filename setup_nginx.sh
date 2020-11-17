@@ -25,6 +25,7 @@ cd nginx-$nginx_ver
 #submod init
 cd ../ngx_brotli && git submodule update --init && cd $stage_dir/nginx-$nginx_ver
 #config
+apt install libpcre++-dev zlib1g-dev libgeoip-dev -y
 ./configure --with-pcre-jit --with-http_addition_module --with-http_dav_module --with-http_geoip_module --with-http_stub_status_module --with-http_ssl_module --with-http_v2_module --with-http_auth_request_module --with-http_realip_module --with-http_gzip_static_module --with-http_gunzip_module --with-mail --with-mail_ssl_module --with-stream --with-openssl=../openssl-1.1.1h --add-module=../ngx_brotli --with-openssl-opt=enable-tls1_3 --add-module=../naxsi/naxsi_src/
 
 make -j$(nproc)
