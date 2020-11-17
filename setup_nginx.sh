@@ -1,9 +1,9 @@
 #!/bin/bash
 # Ths is used for compile NGINX For Starx.
 #vars
-nginx_ver="1.19.1"
-openssl_ver="1.1.1g"
-stage_dir="/media/Samsung128/SRC/web"
+nginx_ver="1.19.4"
+openssl_ver="1.1.1h"
+stage_dir="/tmp/web"
 #urls
 nginx_src="http://nginx.org/download/nginx-$nginx_ver.tar.gz"
 openssl_src="https://www.openssl.org/source/openssl-$openssl_ver.tar.gz"
@@ -25,6 +25,7 @@ cd nginx-$nginx_ver
 #submod init
 cd ../ngx_brotli && git submodule update --init && cd $stage_dir/nginx-$nginx_ver
 #config
-./configure --with-pcre-jit --with-openssl=../openssl-$openssl_ver --add-module=../ngx_brotli --with-http_stub_status_module --with-http_ssl_module --with-http_v2_module --with-openssl-opt=enable-tls1_3 --with-http_realip_module --with-http_gzip_static_module --with-http_gunzip_module --add-module=../naxsi/naxsi_src/ --with-stream
+./configure --with-pcre-jit --with-http_addition_module --with-http_dav_module --with-http_geoip_module --with-http_stub_status_module --with-http_ssl_module --with-http_v2_module --with-http_auth_request_module --with-http_realip_module --with-http_gzip_static_module --with-http_gunzip_module --with-mail --with-mail_ssl_module --with-stream --with-openssl=../openssl-1.1.1h --add-module=../ngx_brotli --with-openssl-opt=enable-tls1_3 --add-module=../naxsi/naxsi_src/
+
 make -j$(nproc)
 make install
