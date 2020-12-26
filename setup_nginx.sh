@@ -2,7 +2,7 @@
 # Ths is used for compile NGINX For Starx.
 #vars
 nginx_ver="1.19.4"
-openssl_ver="1.1.1h"
+openssl_ver="1.1.1i"
 stage_dir="/tmp/web"
 #urls
 nginx_src="http://nginx.org/download/nginx-$nginx_ver.tar.gz"
@@ -18,8 +18,8 @@ wget $openssl_src -4
 git clone --depth=1 $brotli_src
 git clone --depth=1 $naxsi_src
 #ex
-tar xzvf nginx-$nginx_ver.tar.gz
-tar xzvf openssl-$openssl_ver.tar.gz
+tar xf nginx-$nginx_ver.tar.gz
+tar xf openssl-$openssl_ver.tar.gz
 #stage
 cd nginx-$nginx_ver
 #submod init
