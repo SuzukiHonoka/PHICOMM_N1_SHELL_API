@@ -2,7 +2,7 @@
 # Ths is used for compile NGINX For Starx.
 #vars
 nginx_ver="1.19.4"
-openssl_ver="1.1.1i"
+openssl_ver="1.1.1j"
 stage_dir="/tmp/web"
 #urls
 nginx_src="http://nginx.org/download/nginx-$nginx_ver.tar.gz"
