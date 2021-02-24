@@ -16,7 +16,7 @@ rm -r $stage_dir/*
 wget $nginx_src -4
 wget $openssl_src -4
 git clone --depth=1 $brotli_src
-git clone --depth=1 $naxsi_src
+git clone --depth=1 $naxsi_src --single-branch
 #ex
 tar xf nginx-$nginx_ver.tar.gz
 tar xf openssl-$openssl_ver.tar.gz
