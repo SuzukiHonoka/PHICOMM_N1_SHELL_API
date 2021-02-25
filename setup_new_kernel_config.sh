@@ -7,7 +7,7 @@ archive=$kver.tar.xz
 kurl="https://cdn.kernel.org/pub/linux/kernel/v5.x/$archive"
 if [ -z $2 ]; then
   mkdir -p $stage_dir
-  mount -t tmpfs -o size=2G tmpfs $stage_dir
+  mount -t tmpfs -o size=4G tmpfs $stage_dir
   else
   mkdir -p $2
   stage_dir=$2
