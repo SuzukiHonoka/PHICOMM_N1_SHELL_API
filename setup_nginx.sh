@@ -30,3 +30,4 @@ sudo apt install libpcre++-dev zlib1g-dev libgeoip-dev gcc g++ make -y
 
 make -j$(nproc)
 sudo make install
+ln -s /usr/local/nginx/sbin/nginx /usr/sbin/nginx
