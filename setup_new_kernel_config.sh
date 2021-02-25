@@ -5,8 +5,12 @@ old_config="https://github.com/SuzukiHonoka/s905d-kernel-precompiled/raw/master/
 kver=linux-$1
 archive=$kver.tar.xz
 kurl="https://cdn.kernel.org/pub/linux/kernel/v5.x/$archive"
-mkdir -p $stage_dir
-mount -t tmpfs -o size=2G tmpfs $stage_dir
+if [ [ -z $2 ] ]; then
+  mkdir -p $stage_dir
+  mount -t tmpfs -o size=2G tmpfs $stage_dir
+  else
+  mkdir -p $2
+  $stage_dir=$2
 cd $stage_dir
 wget $old_config
 wget $kurl
