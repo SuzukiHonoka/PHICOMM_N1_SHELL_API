@@ -1,7 +1,7 @@
 #!/bin/bash
 # Ths is used for compile NGINX For Starx.
 #vars
-nginx_ver="1.19.4"
+nginx_ver="1.19.8"
 openssl_ver="1.1.1j"
 stage_dir="/tmp/web"
 #urls
