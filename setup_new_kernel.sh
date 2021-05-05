@@ -28,8 +28,6 @@ cd $BUILD_DIR
 
 wget $KDURL
 xz -d "$KVER.tar.xz"
-rm "$KVER.tar.xz"
-tar xf "$KVER.tar"
-rm "$KVER.tar"
+tar xf "$KVER.tar" && rm "$KVER.tar"
 cd "$BUILD_DIR/$KVER"
 #curl -o .config https://github.com/SuzukiHonoka/s905d-kernel-precompiled/raw/master/.config
