@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Starting aarch64 toolchain setup"
 stage_dir="/opt/toolchain/aarch64"
 tool_url="https://github.com/SuzukiHonoka/s905d-kernel-precompiled/releases/download/gcc-10.2/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu.tar.xz"
